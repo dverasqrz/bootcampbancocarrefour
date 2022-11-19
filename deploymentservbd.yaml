@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pvc
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: do-block-storage
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+data:
+  MYSQL_DATABASE: meubanco
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secrets
+type: Opaque
+stringData:
+  db_password: 'r@@tpass@@'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: dverazs/dio-mysql:v1
+        envFrom:
+          - configMapRef:
+              name: mysql-configmap
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secrets
+              key: db_password
+        ports:
+        - containerPort: 3306 
+        resources:
+            requests:
+              cpu: 500m
+              memory: 128M
+            limits:
+              cpu: 1000m
+              memory: 512M                   
+        volumeMounts:
+          - mountPath: "/var/lib/mysql"
+            name: mysql-volume
+      volumes:
+        - name: mysql-volume
+          persistentVolumeClaim:
+              claimName: mysql-pvc

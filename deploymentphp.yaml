@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-php
+spec:
+  selector:
+    matchLabels:
+      app: php
+  template:
+    metadata:
+      labels:
+        app: php
+    spec:
+      containers:
+      - name: php
+        image: dverazs/dio-php:v11
+        args: ["--ignore-db-dir=lost+found"]
+        ports:
+        - containerPort: 80 
+        resources:
+            requests:
+              cpu: 500m
+              memory: 128M
+            limits:
+              cpu: 1000m
+              memory: 512M                   

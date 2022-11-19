@@ -1,0 +1,6 @@
+FROM php:8.1.12-apache-bullseye
+WORKDIR /var/www/html
+COPY formulario/. /var/www/html
+RUN apt-get update && apt-get install nano -y && apt-get upgrade -y
+RUN docker-php-ext-install pdo pdo_mysql mysqli
+EXPOSE 80
