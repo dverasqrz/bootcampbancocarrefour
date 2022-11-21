@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <title>Formulário de Contato v2</title>
-    <script src='https://www.google.com/recaptcha/api.js'></script> 
-
   </head>
   <body>
   
@@ -35,7 +33,8 @@
               <h3 class="heading mb-4">Fale sobre você!</h3>
               <p>Digite suas informações</p>
 
-              <p><img src="images/carrefour.png" alt="Image" class="img-fluid"></p>
+              <!--<p><img src="images/undraw-contact.svg" alt="Image" class="img-fluid"></p>-->
+              <p><img src="images/undraw-contact.svg" alt="Image" class="img-fluid"></p>
 
 
             </div>
@@ -68,7 +67,6 @@
                   <span class="submitting"></span>
                   </div>
                 </div>
-                <div id='recaptcha' class="g-recaptcha" data-sitekey="6LcLfeYSAAAAAB8kXOpguGeprVaLn2RjGRmbSFTy" data-callback="sendForm" data-size="invisible"></div>
               </form>
 
               <div id="form-message-warning mt-4"></div> 
@@ -89,22 +87,5 @@
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/main.js"></script>
 
-
-    <script type="text/javascript">
-      let form = document.querySelector('#register');
-      form.addEventListener('submit',  e => {
-          e.preventDefault();
-          let name = document.querySelector('#nome');
-          let email = document.querySelector('#email');
-          if(!name.value || !email.value) {
-              alert('Nome e Email são Obrigatorios');
-              } else{
-              grecaptcha.execute();
-          }       
-          });
-      function sendForm(){
-          alert("reCAPTCHA funcionou");
-      }
-  </script>
   </body>
 </html>
