@@ -5,8 +5,8 @@ metadata:
 spec:
   accessModes:
   - ReadWriteOnce
-  #storageClassName: do-block-storage
-  storageClassName: standard-rwo
+  storageClassName: do-block-storage
+  #storageClassName: standard-rwo
   resources:
     requests:
       storage: 2Gi
