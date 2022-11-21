@@ -18,6 +18,7 @@ if(mysqli_query($link, $sql)){
     echo '<script type="text/javascript">
        window.onload = function () { alert("Enviado corretamente!"); } 
     </script>';
+    header("location: index.php");
 } else{
     echo "Erro ao executar o cadastro $sql. " . mysqli_error($link);
 }
