@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 $sql = "SELECT email FROM mensagens";
 $result = $conn->query($sql);
 
-echo "<br>Emails cadastrados:". "<br>";
+echo "<br>Emails cadastrados:<br>";
 
 echo '<table border="1" cellspacing="2" cellpadding="2"> 
        <tr> 
