@@ -14,7 +14,8 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-                echo $row['email']."<br>";
+                echo "id: " . $row["id"]. " - Nome: " . $row["nome"]. " " . $row["email"]. " " . $row["assunto"]. " " . $row["comentario"]. "<br>";
+                //echo $row['email']."<br>";
         }
 } else {
          echo "Nenhum resultado cadastrado";
