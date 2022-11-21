@@ -15,7 +15,9 @@ $comentario = mysqli_real_escape_string($link, $_REQUEST['comentario']);
 // Attempt insert query execution
 $sql = "INSERT INTO mensagens (nome,email,assunto,comentario) VALUES ('$nome','$email','$assunto','$comentario')";
 if(mysqli_query($link, $sql)){
-    echo "Enviado corretamente.";
+    echo '<script type="text/javascript">
+       window.onload = function () { alert("Enviado corretamente!"); } 
+    </script>';
 } else{
     echo "Erro ao executar o cadastro $sql. " . mysqli_error($link);
 }

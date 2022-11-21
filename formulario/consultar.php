@@ -13,14 +13,14 @@ $result = $conn->query($sql);
 
 echo '<table border="0" cellspacing="2" cellpadding="2"> 
       <tr> 
-          <td> <font face="Arial">Value1</font> </td> 
-          <td> <font face="Arial">Value2</font> </td> 
-          <td> <font face="Arial">Value3</font> </td> 
-          <td> <font face="Arial">Value4</font> </td> 
-          <td> <font face="Arial">Value5</font> </td> 
+          <td> <font face="Arial">ID</font> </td> 
+          <td> <font face="Arial">Nome</font> </td> 
+          <td> <font face="Arial">Email</font> </td> 
+          <td> <font face="Arial">Assunto</font> </td> 
+          <td> <font face="Arial">Comentário</font> </td> 
       </tr>';
 
-if ($result = $mysqli->query($query)) {
+if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $field1name = $row["id"];
         $field2name = $row["nome"];
