@@ -22,7 +22,7 @@ if(mysqli_query($link, $sql)){
     var timer = setTimeout(function() {
         window.location="index.html"
     }, 3000);
-    </script>'
+    </script>';
 } else{
     echo "Erro ao executar o cadastro $sql. " . mysqli_error($link);
 }
