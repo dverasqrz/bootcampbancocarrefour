@@ -14,9 +14,9 @@ $result = $conn->query($sql);
 echo "<br>Emails cadastrados:". "<br>";
 
 echo '<table border="1" cellspacing="2" cellpadding="2"> 
-//       <tr> 
-//           <td> <font face="Arial">Email</font> </td> 
-//       </tr>';
+       <tr> 
+           <td> <font face="Arial">Email</font> </td> 
+       </tr>';
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
