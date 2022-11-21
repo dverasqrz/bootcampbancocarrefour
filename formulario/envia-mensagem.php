@@ -17,8 +17,8 @@ $sql = "INSERT INTO mensagens (nome,email,assunto,comentario) VALUES ('$nome','$
 if(mysqli_query($link, $sql)){
     echo '<script type="text/javascript">
        window.onload = function () { alert("Enviado corretamente!"); } 
+       window.location.href = "index.php";
     </script>';
-    header("location: index.php");
 } else{
     echo "Erro ao executar o cadastro $sql. " . mysqli_error($link);
 }
