@@ -52,5 +52,6 @@ jobs:
           deploymentphp.yaml
           deploymentservbd.yaml
           services.yaml
+          horizAutoScale.yaml
         # Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test
         images: dverazs/dio-php:${{github.run_number}}
